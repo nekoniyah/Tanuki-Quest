@@ -4,12 +4,12 @@
 
 ## Features
 
--   **Create your own characters**: Design characters with unique traits, backgrounds, and abilities.
--   **Narrated adventures**: Experience your roleplaying sessions with AI-generated narratives that adapt to your choices.
--   **Collaborative storytelling**: Work with friends to create rich, immersive stories.
--   **Customizable settings**: Choose from various environments and scenarios to enhance your roleplaying experience.
--   **AI-driven interactions**: Engage in dynamic conversations with AI characters that respond to your actions and decisions.
--   **Cross-platform support**: Play on web, mobile, and desktop devices for seamless access.
+- **Create your own characters**: Design characters with unique traits, backgrounds, and abilities.
+- **Narrated adventures**: Experience your roleplaying sessions with AI-generated narratives that adapt to your choices.
+- **Collaborative storytelling**: Work with friends to create rich, immersive stories.
+- **Customizable settings**: Choose from various environments and scenarios to enhance your roleplaying experience.
+- **AI-driven interactions**: Engage in dynamic conversations with AI characters that respond to your actions and decisions.
+- **Cross-platform support**: Play on web, mobile, and desktop devices for seamless access.
 
 ## Getting Started
 
