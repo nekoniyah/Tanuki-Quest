@@ -85,6 +85,6 @@ export const actions = {
 			userId: (locals as MyLocals).user!.id as number
 		});
 
-		return { status: 200 };
+		redirect(303, `/${room_id}`);
 	}
 };

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { page } from '$app/state';
+	import { trans } from '$lib/langs/lib.js';
 	import cookie from 'cookie';
 	// Login & Register page
 	let isRegistering = false;
@@ -14,40 +15,52 @@
 		cookie.serialize('error', '', { path: '/' });
 		data.error = undefined;
 	}, 5000);
+
+	let tr: (key: string) => string;
+
+	(async () => {
+		tr = await trans();
+	})();
 </script>
 
 <svelte:head>
-	<title>{isRegistering ? 'Register' : 'Login'} - Tanuki Quest</title>
+	{#if tr}
+		<title>{isRegistering ? tr('register.title') : tr('login.title')} - Tanuki Quest</title>
+	{/if}
 </svelte:head>
 
-<form method="post" action="?/{data.toValidate ? 'validate' : 'login'}" use:enhance>
-	<div class="login-form">
-		<img src="/favicon.png" alt="" />
-		<h1>{isRegistering ? 'Register' : 'Login'}</h1>
-		<input type="email" name="email" placeholder="Email" required />
-		{#if data.toValidate}
-			<input type="text" name="code" placeholder="Code" required />
-		{:else}
-			<input type="username" name="username" placeholder="Username" required />
-			<div>
-				<label for="do-register">Register?</label>
-				<input type="checkbox" name="do-register" id="do-register" bind:checked={isRegistering} />
-			</div>
-		{/if}
+{#if tr}
+	<form method="post" action="?/{data.toValidate ? 'validate' : 'login'}" use:enhance>
+		<div class="login-form">
+			<img src="/favicon.png" alt="" />
+			<h1>{isRegistering ? 'Register' : 'Login'}</h1>
+			<input type="email" name="email" placeholder="Email" required />
+			{#if data.toValidate}
+				<input type="text" name="code" placeholder="Code" required />
+			{:else}
+				<input type="username" name="username" placeholder="Username" required />
+				<div>
+					<label for="do-register">{tr('register.title')}?</label>
+					<input type="checkbox" name="do-register" id="do-register" bind:checked={isRegistering} />
+				</div>
+			{/if}
 
-		<button type="submit" class="login-btn">{isRegistering ? 'Register' : 'Login'}</button>
-	</div>
-	{#if data.error}
-		<p class="error">{data.error}</p>
-	{/if}
-	{#if data.toValidate}
-		<p class="info">Please enter the verification code sent to your email.</p>
-	{:else}
-		<p class="info">
-			If you don't have an account, you can register by checking the "Register?" box.
-		</p>
-	{/if}
-</form>
+			<button type="submit" class="login-btn"
+				>{isRegistering ? tr('register.submit') : tr('login.submit')}</button
+			>
+		</div>
+		{#if data.error}
+			<p class="error">{data.error}</p>
+		{/if}
+		{#if data.toValidate}
+			<p class="info">Please enter the verification code sent to your email.</p>
+		{:else}
+			<p class="info">
+				If you don't have an account, you can register by checking the "Register?" box.
+			</p>
+		{/if}
+	</form>
+{/if}
 
 <style lang="scss">
 	.login-form {

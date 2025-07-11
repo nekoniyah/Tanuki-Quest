@@ -1,32 +1,41 @@
 <script lang="ts">
+	import { trans } from '$lib/langs/lib';
 	import type { User } from '$lib/server/db/schema';
 
 	// Navbar component
 
 	export let user: User | null = null;
+
+	let tr: (key: string) => string;
+
+	(async () => {
+		tr = await trans();
+	})();
 </script>
 
-<div class="navbar">
-	<div class="logo">
-		<a href="/">
-			<img src="/favicon.png" alt="Logo" />
-			Tanuki
-		</a>
+{#if tr}
+	<div class="navbar">
+		<div class="logo">
+			<a href="/">
+				<img src="/favicon.png" alt="Logo" />
+				Tanuki
+			</a>
+		</div>
+		<div class="links">
+			<a href="/about">{tr('navbar.about')}</a>
+			<a href="/contact">{tr('navbar.contact')}</a>
+		</div>
+		<div class="user">
+			{#if user}
+				<a href="/profile">{user.username}</a>
+				<a href="/logout">{tr('navbar.logout')}</a>
+			{:else}
+				<a href="/login">{tr('navbar.login')}</a>
+				<a href="/login?register=true">{tr('navbar.register')}</a>
+			{/if}
+		</div>
 	</div>
-	<div class="links">
-		<a href="/about">About</a>
-		<a href="/contact">Contact</a>
-	</div>
-	<div class="user">
-		{#if user}
-			<a href="/profile">{user.username}</a>
-			<a href="/logout">Logout</a>
-		{:else}
-			<a href="/login">Login</a>
-			<a href="/login?register=true">Register</a>
-		{/if}
-	</div>
-</div>
+{/if}
 
 <style lang="scss">
 	.navbar {

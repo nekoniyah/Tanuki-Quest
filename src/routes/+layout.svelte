@@ -1,12 +1,13 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
+	import { trans } from '$lib/langs/lib.js';
 
 	export let data;
 </script>
 
 <Navbar user={data.user} />
 <svelte:head>
-	<title>Tanuki.quest</title>
+	<title>Tanuki</title>
 </svelte:head>
 
 <slot />

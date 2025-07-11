@@ -7,6 +7,13 @@
 </script>
 
 <div class="room">
+	<div class="members">
+		{#each data.members as member}
+			<div class="member">
+				<span>{member.username}</span>
+			</div>
+		{/each}
+	</div>
 	<Chatbox
 		data={{
 			room: data.room,

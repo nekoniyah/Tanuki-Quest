@@ -1,0 +1,42 @@
+{
+	"navbar": {
+		"home": "Accueil",
+		"about": "À propos",
+		"contact": "Contact",
+		"login": "Connexion",
+		"register": "S'inscrire",
+		"logout": "Déconnexion"
+	},
+	"footer": {
+		"privacyPolicy": "Politique de confidentialité",
+		"termsOfService": "Conditions d'utilisation",
+		"cookiePolicy": "Politique de cookies",
+		"help": "Aide",
+		"faq": "FAQ"
+	},
+	"landing": {
+		"title": "Bienvenue sur Tanuki Quest",
+		"subtitle": "Votre aventure commence ici",
+		"description": "Explorez, découvrez et interagissez avec notre communauté dynamique.",
+		"cta": {
+			"login": "Se connecter",
+			"register": "Créer un compte"
+		}
+	},
+	"login": {
+		"title": "Connexion",
+		"email": "Adresse e-mail",
+		"code": "Code d'invitation",
+		"submit": "Se connecter",
+		"noAccount": "Pas de compte ?"
+	},
+	"register": {
+		"title": "S'inscrire",
+		"name": "Nom complet",
+		"email": "Adresse e-mail",
+		"code": "Code d'invitation",
+		"submit": "S'inscrire",
+		"alreadyHaveAccount": "Vous avez déjà un compte ?",
+		"loginLink": "Se connecter ici"
+	}
+}

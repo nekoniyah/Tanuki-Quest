@@ -38,7 +38,7 @@
 		{/each}
 	</div>
 
-	<form class="footer" on:submit|preventDefault use:enhance action="?/send-message" method="post">
+	<form class="footer" on:submit|preventDefault use:enhance action="?/sendMessage" method="post">
 		<input type="text" placeholder="Type your message..." />
 		<button>Send</button>
 	</form>
